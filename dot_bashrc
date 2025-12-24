@@ -1,0 +1,64 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
+fi
+unset rc
+
+. "$HOME/.cargo/env"
+
+alias docker=podman
+alias tools="toolbox enter tools"
+alias n=nvim
+
+_is_inside_tools_toolbox() {
+  # The presence of /run/.toolboxenv is a reliable indicator
+  [[ -f /run/.toolboxenv ]] || grep -qE 'container|podman' /proc/1/cgroup || hostname | grep -q '\-toolbx$'
+}
+
+# Bash/Zsh hook that runs when a command cannot be located
+command_not_found_handle() {
+  local cmd="$1"
+  shift # remaining args become "$@"
+
+  # If we are already inside the toolbox, give up – the command truly
+  # does not exist there either, so let the normal "command not found"
+  # message appear.
+  if _is_inside_tools_toolbox; then
+    printf "%s: command not found\n" "$cmd" >&2
+    return 127
+  fi
+
+  # Try to execute the command inside the "tools" toolbox.
+  # `toolbox run` will start the container (or reuse an existing one)
+  # and run the requested binary with the same arguments.
+  toolbox run --container tools "$cmd" "$@"
+  local status=$?
+
+  # If the toolbox also reports “command not found”, forward a nice
+  # message that mirrors the native shell output.
+  if ((status == 127)); then
+    printf "%s: command not found (even inside toolbox)\n" "$cmd" >&2
+  fi
+
+  return $status
+}
