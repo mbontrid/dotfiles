@@ -6,4 +6,5 @@ return {
   dependencies = { "stevearc/dressing.nvim" },
   -- "rcarriga/nvim-notify",
   lazy = true,
+  ft = { "jupyter", "ipynb", "notebook" },
 }

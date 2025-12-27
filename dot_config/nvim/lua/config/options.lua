@@ -11,4 +11,4 @@ vim.opt.tabstop = 4 -- For visual appearance of tab characters
 vim.opt.softtabstop = 4 -- For max jump distance of manual tabs
 vim.opt.shiftwidth = 0 -- Use tabs indentation
 
-vim.lsp.enable("copilot-language-server")
+-- vim.lsp.enable(...)
