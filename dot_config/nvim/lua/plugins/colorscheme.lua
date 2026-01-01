@@ -63,6 +63,12 @@ return {
     },
   },
 
+  {
+    "Mofiqul/adwaita.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+
   --configure LazyVim to load the theme
   {
     "LazyVim/LazyVim",
