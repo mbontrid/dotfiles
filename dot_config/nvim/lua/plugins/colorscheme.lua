@@ -1,14 +1,15 @@
 return {
-  {
-    "folke/tokyonight.nvim",
-    opts = {
-      transparent = true,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
-    },
-  },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = true,
+  --   opts = {
+  --     transparent = true,
+  --     styles = {
+  --       sidebars = "transparent",
+  --       floats = "transparent",
+  --     },
+  --   },
+  -- },
 
   {
     "catppuccin/nvim",
@@ -63,11 +64,11 @@ return {
     },
   },
 
-  {
-    "Mofiqul/adwaita.nvim",
-    lazy = false,
-    priority = 1000,
-  },
+  -- {
+  --   "Mofiqul/adwaita.nvim",
+  --   lazy = true,
+  --   priority = 1000,
+  -- },
 
   --configure LazyVim to load the theme
   {
