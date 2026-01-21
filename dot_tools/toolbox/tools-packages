@@ -1,0 +1,9 @@
+chezmoi
+
+# kitty specific
+libwayland-cursor
+kitty
+
+# neovim specific
+ImageMagick
+neovim
