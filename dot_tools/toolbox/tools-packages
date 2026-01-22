@@ -1,9 +1,17 @@
-chezmoi
-
 # kitty specific
-libwayland-cursor
 kitty
+libwayland-cursor
+libwayland-egl
 
 # neovim specific
 ImageMagick
 neovim
+luarocks
+latex
+fzf
+fd
+
+# misc
+pip
+sqlite
+chezmoi
