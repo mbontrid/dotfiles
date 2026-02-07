@@ -23,7 +23,7 @@ return {
 		},
 
 		daily_notes = {
-			folder = "~/Documents/Obsidian/Obsidian-main/Daily notes",
+			folder = "Daily notes",
 			date_foramt = "%Y-%m-%d",
 			workdays_only = false,
 			alias_format = "%dddd %DD %MMMM %YYYY",
