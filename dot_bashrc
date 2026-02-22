@@ -2,12 +2,12 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  . /etc/bashrc
 fi
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-	PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
@@ -16,11 +16,11 @@ export PATH
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			. "$rc"
-		fi
-	done
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
 fi
 unset rc
 
@@ -29,6 +29,9 @@ unset rc
 alias docker=podman
 alias tools="toolbox enter tools"
 alias n=nvim
+alias quaserv="ssh -i .ssh/perserv quatras@perserv"
+alias rootserv="ssh -i .ssh/perserv root@perserv"
+alias persev="ssh -i .ssh/perserv core@perserv"
 
 # _is_inside_tools_toolbox() {
 #   # The presence of /run/.toolboxenv is a reliable indicator
