@@ -10,31 +10,36 @@
   "buffer_line_height": "comfortable",
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "features": {
-    "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "copilot",
   },
   "vim_mode": true,
   "autosave": "on_focus_change",
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5"
+      "model": "claude-sonnet-4.5",
     },
-    "model_parameters": []
+    "model_parameters": [],
   },
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "theme": {
     "mode": "system",
     "light": "Ayu Light",
-    "dark": "Ayu Dark"
+    "dark": "Ayu Dark",
   },
   "lsp": {
     "tinymist": {
       "settings": {
         "exportPdf": "onSave",
-        "outputPath": "$root/$name"
-      }
-    }
+        "outputPath": "$root/$name",
+      },
+    },
+    "wakatime": {
+      "initialization_options": {
+        "api-key": "4cb5240f-24cb-4d71-9dba-b8b4d9a1a040",
+      },
+    },
   },
-  "snippet_sort_order": "top"
+  "snippet_sort_order": "top",
 }
